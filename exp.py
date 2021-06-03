@@ -32,7 +32,8 @@ import rpy2.ipython.html
 rTE = importr('RTransferEntropy')
 rTE.set_quiet(True)
 
-from utils import *
+from core.functions import *
+from core.preprocess import *
 
 # setup seed
 def seed_everything(seed):
@@ -49,80 +50,68 @@ seed_everything(SEED)
 
 if not os.path.exists('results'):
     os.mkdir('results')
-if not os.path.exists('out_{}'.format(int(sys.argv[3]))):
-    os.mkdir('out_{}'.format(int(sys.argv[3])))
+if not os.path.exists('results/out_{}'.format(int(sys.argv[3]))):
+    os.mkdir('results/out_{}'.format(int(sys.argv[3])))
 
 raw_results = []
-scale_results = []
-center_results = []
-norm_results = []
+min_max_results = []
+z_score_results = []
+nonlinear_results = []
 
-scale_p_results = []
-center_p_results = []
-norm_p_results = []
+min_max_p_results = []
+z_score_p_results = []
+nonlinear_p_results = []
 
-raw_bounds = []
-scale_bounds = []
-center_bounds = []
-norm_bounds = []
 
-scale_p_bounds = []
-center_p_bounds = []
-norm_p_bounds = []
-
-for rep in tqdm(range(100)):
+for rep in tqdm(range(2)):
     result_mae = []
     result_rmse = []
     
     n = 120
     lag = int(sys.argv[1])
     noise = int(sys.argv[2])
-
+    x,y = generate_samples(n=n, lag=lag, noise=noise)
     
     # entire case
-    x_scaling = scaling(x)
-    x_centering = centering(x)
-    # x_norm = normalization(x)
-    x_norm_scaled = normalization(x, scale=True)
+    x_min_max = min_max(x)
+    x_z_score = z_score(x)
+    # x_nonlinear = nonlinear(x)
+    x_nonlinear_scaled = nonlinear(x, scale=True)
 
-    y_scaling = scaling(y)
-    y_centering = centering(y)
-    #y_norm = normalization(y)
-    y_norm_scaled = normalization(y, scale=True)
+    y_min_max = min_max(y)
+    y_z_score = z_score(y)
+    #y_nonlinear = nonlinear(y)
+    y_nonlinear_scaled = nonlinear(y, scale=True)
 
     TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x, y, plot=False, curve=True)
     c = list(curve[2])
     c[1] = c[1]*c[1]
     out = [*c, get_mae(TE_boot_count, lag)]
     raw_results.append(out)
-    raw_bounds.append(list(get_bound(TE_boot_count, confidence=0.95)))
     result_mae.append(get_mae(TE_boot_count, lag))
     result_rmse.append(get_rmse(TE_boot_count, lag))
 
-    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_scaling,y_scaling, plot=False, curve=True)
+    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_min_max,y_min_max, plot=False, curve=True)
     c = list(curve[2])
     c[1] = c[1]*c[1]
     out = [*c, get_mae(TE_boot_count, lag)]
-    scale_results.append(out)
-    scale_bounds.append(list(get_bound(TE_boot_count, confidence=0.95)))
+    min_max_results.append(out)
     result_mae.append(get_mae(TE_boot_count, lag))
     result_rmse.append(get_rmse(TE_boot_count, lag))
 
-    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_centering,y_centering, plot=False, curve=True)
+    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_z_score,y_z_score, plot=False, curve=True)
     c = list(curve[2])
     c[1] = c[1]*c[1]
     out = [*c, get_mae(TE_boot_count, lag)]
-    center_results.append(out)
-    center_bounds.append(list(get_bound(TE_boot_count, confidence=0.95)))
+    z_score_results.append(out)
     result_mae.append(get_mae(TE_boot_count, lag))
     result_rmse.append(get_rmse(TE_boot_count, lag))
 
-    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_norm_scaled,y_norm_scaled, plot=False, curve=True)
+    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_nonlinear_scaled,y_nonlinear_scaled, plot=False, curve=True)
     c = list(curve[2])
     c[1] = c[1]*c[1]
     out = [*c, get_mae(TE_boot_count, lag)]
-    norm_results.append(out)
-    norm_bounds.append(list(get_bound(TE_boot_count, confidence=0.95)))
+    nonlinear_results.append(out)
     result_mae.append(get_mae(TE_boot_count, lag))
     result_rmse.append(get_rmse(TE_boot_count, lag))
 
@@ -133,38 +122,35 @@ for rep in tqdm(range(100)):
     y_pre = [70] * period + np.random.normal(0, 1, period)*noise
     y = pd.Series(np.append(y_pre, y.to_numpy()))
     
-    x_scaling = scaling(x, period=period)[-n:]
-    x_centering = centering(x, period=period)[-n:]
-    x_norm_scaled = normalization(x, scale=True, period=period)[-n:]
+    x_min_max = min_max(x, period=period)[-n:]
+    x_z_score = z_score(x, period=period)[-n:]
+    x_nonlinear_scaled = nonlinear(x, scale=True, period=period)[-n:]
     
-    y_scaling = scaling(y, period=period)[-n:]
-    y_centering = centering(y, period=period)[-n:]
-    y_norm_scaled = normalization(y, scale=True, period=period)[-n:]
+    y_min_max = min_max(y, period=period)[-n:]
+    y_z_score = z_score(y, period=period)[-n:]
+    y_nonlinear_scaled = nonlinear(y, scale=True, period=period)[-n:]
     
-    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_scaling,y_scaling, plot=False, curve=True)
+    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_min_max,y_min_max, plot=False, curve=True)
     c = list(curve[2])
     c[1] = c[1]*c[1]
     out = [*c, get_mae(TE_boot_count, lag)]
-    scale_p_results.append(out)
-    scale_p_bounds.append(list(get_bound(TE_boot_count, confidence=0.95)))
+    min_max_p_results.append(out)
     result_mae.append(get_mae(TE_boot_count, lag))
     result_rmse.append(get_rmse(TE_boot_count, lag))
 
-    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_centering,y_centering, plot=False, curve=True)
+    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_z_score,y_z_score, plot=False, curve=True)
     c = list(curve[2])
     c[1] = c[1]*c[1]
     out = [*c, get_mae(TE_boot_count, lag)]
-    center_p_results.append(out)
-    center_p_bounds.append(list(get_bound(TE_boot_count, confidence=0.95)))
+    z_score_p_results.append(out)
     result_mae.append(get_mae(TE_boot_count, lag))
     result_rmse.append(get_rmse(TE_boot_count, lag))
 
-    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_norm_scaled,y_norm_scaled, plot=False, curve=True)
+    TE_lag, ETE_value, TE_boot_lag, TE_boot_count, TE_boot_mean, curve = get_boot(x_nonlinear_scaled,y_nonlinear_scaled, plot=False, curve=True)
     c = list(curve[2])
     c[1] = c[1]*c[1]
     out = [*c, get_mae(TE_boot_count, lag)]
-    norm_p_results.append(out)
-    norm_p_bounds.append(list(get_bound(TE_boot_count, confidence=0.95)))
+    nonlinear_p_results.append(out)
     result_mae.append(get_mae(TE_boot_count, lag))
     result_rmse.append(get_rmse(TE_boot_count, lag))
 
@@ -176,25 +162,23 @@ for rep in tqdm(range(100)):
     else:
         TE_boot_count_all = TE_boot_count_all+TE_boot_count
 
-TE_boot_count_all = TE_boot_count_all.fillna(0)
-TE_boot_count_all.to_csv('tmp/boot_{}_{}_{}'.format(period, lag, noise))
-
 
 results_all = [
                 np.array(raw_results).mean(axis=0).tolist() + np.array(raw_results).std(axis=0).tolist(),
-                np.array(scale_results).mean(axis=0).tolist() + np.array(scale_results).std(axis=0).tolist(),
-                np.array(center_results).mean(axis=0).tolist() + np.array(center_results).std(axis=0).tolist(),
-                np.array(norm_results).mean(axis=0).tolist() + np.array(norm_results).std(axis=0).tolist(),
-                np.array(scale_p_results).mean(axis=0).tolist() + np.array(scale_p_results).std(axis=0).tolist(),
-                np.array(center_p_results).mean(axis=0).tolist() + np.array(center_p_results).std(axis=0).tolist(),
-                np.array(norm_p_results).mean(axis=0).tolist() + np.array(norm_p_results).std(axis=0).tolist(),
+                np.array(min_max_results).mean(axis=0).tolist() + np.array(min_max_results).std(axis=0).tolist(),
+                np.array(z_score_results).mean(axis=0).tolist() + np.array(z_score_results).std(axis=0).tolist(),
+                np.array(nonlinear_results).mean(axis=0).tolist() + np.array(nonlinear_results).std(axis=0).tolist(),
+                np.array(min_max_p_results).mean(axis=0).tolist() + np.array(min_max_p_results).std(axis=0).tolist(),
+                np.array(z_score_p_results).mean(axis=0).tolist() + np.array(z_score_p_results).std(axis=0).tolist(),
+                np.array(nonlinear_p_results).mean(axis=0).tolist() + np.array(nonlinear_p_results).std(axis=0).tolist(),
     
               ]
 
 results_all = pd.DataFrame(results_all, 
-                           index=['raw', 'scale', 'center', 'norm', 'scale_p', 'center_p', 'norm_p'], 
+                           index=['raw', 'min-max', 'z-score', 'nonlinear', 'min_max_p', 'z-score_p', 'nonlinear_p'], 
                            columns=['mu(mean)', 'std(mean)', 'MAE(mean)', 'mu(std)', 'std(std)', 'MAE(std)'])
 
-results_all.to_csv('results/out_{}/results_{}_{}.csv'.format(period, lag, noise))
+# results_all.to_csv('results/out_{}/results_{}_{}.csv'.format(period, lag, noise))
+results_all.to_csv('results/out_{}/s_{}_{}.csv'.format(period, lag, noise))
 
 
