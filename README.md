@@ -20,7 +20,9 @@ pip install rpy2
 </br>
 
 ## Tutorial code 
-Simulation data and tutorial code is included [Simulation]('Simulation.ipynb')
+Simulation data and tutorial code is included [Simulation]('https://github.com/yongkyung-oh/TE-propagation/blob/main/Simulation.ipynb')
+
+`Core` contains key functions to estimate time lag with transfer entropy and bootstrap 
 
 ```python
 get_boot(x, y, lag=None, n_boot=100, plot=True, title=None, raw=None, save=None, curve=None):
