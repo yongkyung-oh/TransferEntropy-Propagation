@@ -72,7 +72,5 @@ In this case there are 5 paths exist:
 
 ## Reference
 ```
-
 Behrendt, S., Dimpfl, T., Peter, F. J., & Zimmermann, D. J. (2019). RTransferEntropy—Quantifying information flow between different time series using effective transfer entropy. SoftwareX, 10, 100265.
-
 ```
