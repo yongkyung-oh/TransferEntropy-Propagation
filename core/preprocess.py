@@ -48,7 +48,7 @@ def min_max(x, period=None, max_val=None):
     
 def z_score(x, period=None, scale=True):
     '''
-    (z-score) standard scale with scaling: 0~1
+    (z-score) standard score with scaling: 0~1
     '''
     x = x.fillna(method='ffill')
     if period == None:

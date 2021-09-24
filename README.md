@@ -20,7 +20,7 @@ pip install rpy2
 </br>
 
 ## Tutorial code 
-Simulation data and tutorial code is included [Simulation]('Simulation.ipynb')
+`core` contains key functions to estimate time lag with transfer entropy and bootstrap,
 
 ```python
 get_boot(x, y, lag=None, n_boot=100, plot=True, title=None, raw=None, save=None, curve=None):
@@ -41,6 +41,7 @@ function `get_boot` return bootstrap estimation of time lag between two time ser
 ![output_norm](out/img/nonlinear_p.png "Output with normalization")
 
 We can estimate the mean and standard deviation of estimate time lag distribution using Bootstrap.
+Simulation data and tutorial code is included '[Simulation](https://github.com/yongkyung-oh/TE-propagation/blob/main/Simulation.ipynb)'.
 
 </br>
 
