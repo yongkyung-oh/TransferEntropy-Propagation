@@ -1,7 +1,7 @@
 # TE-propagation
 Time Delay Estimation of Traffic Congestion Propagation based on Transfer Entropy
 
-![overview](figs/overview.png "Overview")
+![overview](figs/overview.jpg "Overview")
 
 ## Prerequisite
 
