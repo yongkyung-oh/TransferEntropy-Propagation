@@ -17,7 +17,6 @@ R package is binded with python using '[rpy2](https://github.com/rpy2/rpy2)'
 pip install rpy2
 ```
 
-</br>
 
 ## Tutorial code 
 `core` contains key functions to estimate time lag with transfer entropy and bootstrap,
@@ -43,7 +42,6 @@ function `get_boot` return bootstrap estimation of time lag between two time ser
 We can estimate the mean and standard deviation of estimate time lag distribution using Bootstrap.
 Simulation data and tutorial code is included '[Simulation](https://github.com/yongkyung-oh/TE-propagation/blob/main/Simulation.ipynb)'.
 
-</br>
 
 ## Real data example
 Suggested algorithm can be applied multi-hop path in the traffic network as follow 
@@ -69,7 +67,6 @@ In this case there are 5 paths exist:
 
 
 
-</br>
 
 ## Reference
 ```
