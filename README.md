@@ -54,20 +54,20 @@ Suggested algorithm can be applied multi-hop path in the traffic network as foll
 ![map](figs/case2_map_letter.png "case map")
 
 In this case there are 5 paths exist:
-- path 1
-<p align="center"><img width="70%" src="figs/case2-1_norm.png" /></p>
+- path 1: [A, B, C, D]
+<p align="center"><img width="60%" src="figs/case2-1_norm.png" /></p>
 
-- path 2
-<p align="center"><img width="70%" src="figs/case2-2_norm.png" /></p>
+- path 2: [A, E, F, G]
+<p align="center"><img width="60%" src="figs/case2-2_norm.png" /></p>
 
-- path 3
-<p align="center"><img width="70%" src="figs/case2-3_norm.png" /></p>
+- path 3: [A, H, I, J]
+<p align="center"><img width="60%" src="figs/case2-3_norm.png" /></p>
 
-- path 4
-<p align="center"><img width="70%" src="figs/case2-4_norm.png" /></p>
+- path 4: [A, H, K, M]
+<p align="center"><img width="60%" src="figs/case2-4_norm.png" /></p>
 
-- path 5
-<p align="center"><img width="70%" src="figs/case2-5_norm.png" /></p>
+- path 5: [A, H, K, L]
+<p align="center"><img width="60%" src="figs/case2-5_norm.png" /></p>
 
 
 
