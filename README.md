@@ -1,5 +1,10 @@
-# TE-propagation
-Time Delay Estimation of Traffic Congestion Propagation based on Transfer Entropy
+# [Time Delay Estimation of Traffic Congestion Propagation based on Transfer Entropy](https://yongkyung-oh.github.io/TE-propagation/)
+(Working) YongKyung Oh, JiIn Kwak, Juyeong Lee and SungIl Kim, **Time Delay Estimation of Traffic Congestion Based on Statistical Causality**
+
+Corresponding author: SungIl Kim (sungil.kim@unist.ac.kr)
+
+## Abstract
+Considering how congestion will propagate in the near future, understanding traffic congestion propagation has become crucial in GPS navigation systems for providing users with a more accurate estimated time of arrival (ETA). However, providing the exact ETA during congestion is a challenge owing to the complex propagation process between roads and high uncertainty regarding the future behavior of the process. To aid in accurate ETA calculation during congestion, we propose a novel time delay estimation method for the propagation of traffic congestion due to traffic accidents using lag-specific transfer entropy (TE). Nonlinear normalization with a sliding window is used to effectively reveal the causal relationship between the source and target time series in calculating the TE. Moreover, Markov bootstrap techniques were adopted to quantify the uncertainty in the time delay estimator. To the best of our knowledge, the proposed method is the first to estimate the time delay based on the causal relationship between adjacent roads. The proposed method was validated using simulated data as well as real user trajectory data obtained from a major GPS navigation system applied in South Korea.
 
 ![overview](figs/overview.jpg "Overview")
 
