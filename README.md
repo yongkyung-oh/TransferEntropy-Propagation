@@ -1,4 +1,4 @@
-# [Time Delay Estimation of Traffic Congestion Propagation based on Transfer Entropy](https://yongkyung-oh.github.io/TE-propagation/)
+# [Time Delay Estimation of Traffic Congestion Propagation based on Transfer Entropy](https://yongkyung-oh.github.io/TransferEntropy-Propagation/)
 (Working) YongKyung Oh, JiIn Kwak, Juyeong Lee and SungIl Kim, **Time Delay Estimation of Traffic Congestion Based on Statistical Causality**
 
 Corresponding author: SungIl Kim (sungil.kim@unist.ac.kr)
