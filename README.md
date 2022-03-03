@@ -8,6 +8,9 @@ Obtaining accurate time delay estimates is important in traffic congestion analy
 
 ![overview](figs/overview.jpg "Overview")
 
+![method](figs/method.jpg "Method")
+
+
 ## Prerequisite
 
 ### RTransferEntropy
