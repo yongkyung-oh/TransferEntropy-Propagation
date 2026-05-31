@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software or method, please cite the paper below."
+title: "Time delay estimation of traffic congestion propagation due to accidents based on statistical causality"
+type: software
+authors:
+  - family-names: Oh
+    given-names: YongKyung
+  - family-names: Kwak
+    given-names: JiIn
+  - family-names: Kim
+    given-names: Sungil
+repository-code: "https://github.com/yongkyung-oh/TransferEntropy-Propagation"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Time delay estimation of traffic congestion propagation due to accidents based on statistical causality"
+  authors:
+    - family-names: Oh
+      given-names: YongKyung
+    - family-names: Kwak
+      given-names: JiIn
+    - family-names: Kim
+      given-names: Sungil
+  journal: "Electronic Research Archive"
+  volume: 31
+  issue: 2
+  start: "691"
+  end: "707"
+  year: 2023
+  publisher:
+    name: "American Institute of Mathematical Sciences (AIMS)"
+  issn: "2688-1594"
+  doi: 10.3934/era.2023034
+  url: "https://www.aimspress.com/article/doi/10.3934/era.2023034"
