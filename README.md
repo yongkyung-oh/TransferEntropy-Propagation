@@ -8,8 +8,7 @@
 **Project page:** https://yongkyung-oh.github.io/TransferEntropy-Propagation/
 
 **Keywords:** transfer entropy, statistical causality, time delay estimation, traffic congestion propagation, Markov bootstrap
-
-Corresponding author: Sungil Kim (sungil.kim@unist.ac.kr)
+**Corresponding author:** Sungil Kim (sungil.kim@unist.ac.kr)
 
 ### Earlier versions (preprints)
 - Oh, Y., Kwak, J., Lee, J., & Kim, S. (2021). Time Delay Estimation of Traffic Congestion Based on Statistical Causality. [[OpenReview]](https://openreview.net/pdf?id=UMQ4PFd35i)
