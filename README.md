@@ -7,11 +7,11 @@
 **DOI:** [10.3934/era.2023034](https://www.aimspress.com/article/doi/10.3934/era.2023034)
 **Project page:** https://yongkyung-oh.github.io/TransferEntropy-Propagation/
 
-**Keywords:** transfer entropy, statistical causality, time delay estimation, traffic congestion propagation, Markov bootstrap
+**Keywords:** statistical causality, transfer entropy, time delay estimation, traffic trajectory data, traffic incident analysis
 
 ### Earlier versions (preprints)
 - Oh, Y., Kwak, J., Lee, J., & Kim, S. (2021). Time Delay Estimation of Traffic Congestion Based on Statistical Causality. [[OpenReview]](https://openreview.net/pdf?id=UMQ4PFd35i)
-- Oh, Y., Kwak, J., Lee, J., & Kim, S. (2021). Time Delay Estimation of Traffic Congestion Propagation based on Transfer Entropy. [[arXiv:2108.06717]](https://arxiv.org/abs/2108.06717)
+- Oh, Y., Kwak, J., & Kim, S. (2021). Time delay estimation of traffic congestion propagation due to accidents based on statistical causality. [[arXiv:2108.06717]](https://arxiv.org/abs/2108.06717)
 
 ## Overview
 ![Overview of the transfer-entropy-based time delay estimation framework for traffic congestion propagation](figs/overview.png "Overview")
@@ -82,6 +82,15 @@ If you use this work, please cite the published paper:
   pages   = {691--707},
   year    = {2023},
   doi     = {10.3934/era.2023034}
+}
+
+@misc{oh2021timedelay_arxiv,
+  title     = {Time delay estimation of traffic congestion propagation due to accidents based on statistical causality},
+  author    = {Oh, YongKyung and Kwak, JiIn and Kim, Sungil},
+  year      = {2021},
+  publisher = {arXiv},
+  doi       = {10.48550/arXiv.2108.06717},
+  url       = {https://arxiv.org/abs/2108.06717}
 }
 ```
 
