@@ -73,7 +73,7 @@ In this case there are 5 paths:
 If you use this work, please cite the published paper:
 
 ```bibtex
-@article{oh2023timedelay,
+@article{oh_time_2023,
   title   = {Time delay estimation of traffic congestion propagation due to accidents based on statistical causality},
   author  = {Oh, YongKyung and Kwak, JiIn and Kim, Sungil},
   journal = {Electronic Research Archive},
@@ -83,8 +83,10 @@ If you use this work, please cite the published paper:
   year    = {2023},
   doi     = {10.3934/era.2023034}
 }
+```
 
-@misc{oh2021timedelay_arxiv,
+```bibtex
+@misc{oh_time_2021_arxiv,
   title     = {Time delay estimation of traffic congestion propagation due to accidents based on statistical causality},
   author    = {Oh, YongKyung and Kwak, JiIn and Kim, Sungil},
   year      = {2021},
