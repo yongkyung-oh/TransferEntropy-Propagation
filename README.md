@@ -6,6 +6,7 @@
 **Venue:** Electronic Research Archive (AIMS), vol. 31, no. 2, pp. 691-707, 2023
 **DOI:** [10.3934/era.2023034](https://www.aimspress.com/article/doi/10.3934/era.2023034)
 **Project page:** https://yongkyung-oh.github.io/TransferEntropy-Propagation/
+**Author page:** [YongKyung Oh](https://yongkyung-oh.github.io/) · [ORCID](https://orcid.org/0000-0002-8027-3433) · [Scientific Inference Lab publications](https://scientific-inference-lab.github.io/publications/#oh_time_2023)
 
 **Keywords:** statistical causality, transfer entropy, time delay estimation, traffic trajectory data, traffic incident analysis
 
