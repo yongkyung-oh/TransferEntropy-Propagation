@@ -64,11 +64,16 @@ The suggested algorithm can be applied to a multi-hop path in the traffic networ
 
 In this case there are 5 paths:
 
-- path 1: [A, B, C, D] <img width="60%" alt="Time delay estimation along path 1 with nonlinear normalization" src="figs/case2-1_norm.png" />
-- path 2: [A, E, F, G] <img width="60%" alt="Time delay estimation along path 2 with nonlinear normalization" src="figs/case2-2_norm.png" />
-- path 3: [A, H, I, J] <img width="60%" alt="Time delay estimation along path 3 with nonlinear normalization" src="figs/case2-3_norm.png" />
-- path 4: [A, H, K, M] <img width="60%" alt="Time delay estimation along path 4 with nonlinear normalization" src="figs/case2-4_norm.png" />
-- path 5: [A, H, K, L] <img width="60%" alt="Time delay estimation along path 5 with nonlinear normalization" src="figs/case2-5_norm.png" />
+- path 1: [A, B, C, D]<br>
+  <img width="60%" alt="Time delay estimation along path 1 with nonlinear normalization" src="figs/case2-1_norm.png" />
+- path 2: [A, E, F, G]<br>
+  <img width="60%" alt="Time delay estimation along path 2 with nonlinear normalization" src="figs/case2-2_norm.png" />
+- path 3: [A, H, I, J]<br>
+  <img width="60%" alt="Time delay estimation along path 3 with nonlinear normalization" src="figs/case2-3_norm.png" />
+- path 4: [A, H, K, M]<br>
+  <img width="60%" alt="Time delay estimation along path 4 with nonlinear normalization" src="figs/case2-4_norm.png" />
+- path 5: [A, H, K, L]<br>
+  <img width="60%" alt="Time delay estimation along path 5 with nonlinear normalization" src="figs/case2-5_norm.png" />
 
 ## Citation
 If you use this work, please cite the published paper:
