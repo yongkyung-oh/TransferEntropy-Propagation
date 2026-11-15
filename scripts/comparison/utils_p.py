@@ -38,7 +38,7 @@ rpy2.robjects.numpy2ri.activate()
 import rpy2.ipython.html
 # rpy2.ipython.html.init_printing()
 
-rTE = importr('RTransferEntropy', lib_loc="/home/user/R/x86_64-pc-linux-gnu-library/3.6")
+rTE = importr('RTransferEntropy')
 rTE.set_quiet(True)
 
 
